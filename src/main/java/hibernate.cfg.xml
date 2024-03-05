@@ -7,12 +7,14 @@
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="connection.url">jdbc:mysql://localhost:3306/Hibernate</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">DasNaDas@369</property>
+		<property name="connection.password"></property>
 		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 		<property name="hbm2ddl.auto">update</property>
 		<property name="show_sql">true</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 		<mapping class="Com.Hibenate.Entity.Person"/>
 		<mapping class="Com.Hibenate.Entity.Address"/>
+		<mapping class="Com.Hibenate.OneToOneMapping.Question"/>
+		<mapping class="Com.Hibenate.OneToOneMapping.Answer"/>
 	</session-factory>
 </hibernate-configuration>
