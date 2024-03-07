@@ -24,6 +24,7 @@ public class OneToOneMapDemo {
 		ans1.setAnswerId(0);
 		ans1.setAnswer("Java is programming lenguage");
 		q1.setAnswer(ans1);
+		ans1.setQuestion(q1);
 		
 		session.save(ans1);
 		session.save(q1);
@@ -35,6 +36,7 @@ public class OneToOneMapDemo {
 		ans2.setAnswerId(1);
 		ans2.setAnswer("Hibernate is ORM Framwork");
 		q2.setAnswer(ans2);
+		ans2.setQuestion(q2);
 		session.save(ans2);
 		session.save(q2);
 		

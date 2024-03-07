@@ -2,6 +2,7 @@ package Com.Hibenate.OneToOneMapping;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Answer {
@@ -9,6 +10,17 @@ public class Answer {
 	@Id
 	private int answerId;
 	private String answer;
+	
+	@OneToOne(mappedBy = "ans")
+	private Question question;
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
 
 	public Answer(int answerId, String answer) {
 		super();

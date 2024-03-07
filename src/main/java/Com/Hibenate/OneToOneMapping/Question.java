@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,7 +17,8 @@ public class Question {
 	private int qId;
 	private String qusteion;
 	@OneToOne
-	private Answer answer;
+	@JoinColumn(name = "a_id")
+	private Answer ans;
 	
 	public Question() {
 		
@@ -29,11 +31,11 @@ public class Question {
 	}
 
 	public Answer getAnswer() {
-		return answer;
+		return ans;
 	}
 
 	public void setAnswer(Answer answer) {
-		this.answer = answer;
+		this.ans = answer;
 	}
 
 	public int getqId() {
