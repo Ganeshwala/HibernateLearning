@@ -9,12 +9,17 @@
 		<property name="connection.username">root</property>
 		<property name="connection.password"></property>
 		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
-		<property name="hbm2ddl.auto">update</property>
+		<property name="hbm2ddl.auto">create</property>
 		<property name="show_sql">true</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 		<mapping class="Com.Hibenate.Entity.Person"/>
 		<mapping class="Com.Hibenate.Entity.Address"/>
 		<mapping class="Com.Hibenate.OneToOneMapping.Question"/>
 		<mapping class="Com.Hibenate.OneToOneMapping.Answer"/>
+		<mapping class="Com.Hibenate.OneToManyMapping.Users"/>
+		<mapping class="Com.Hibenate.OneToManyMapping.BankAccounts"/>
+		<mapping class="Com.Hibenate.ManyToManyMapping.Employee"/>
+		<mapping class="Com.Hibenate.ManyToManyMapping.Employee"/>
+		<mapping class="Com.Hibenate.ManyToManyMapping.Projects"/>
 	</session-factory>
 </hibernate-configuration>
