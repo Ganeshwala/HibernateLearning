@@ -28,10 +28,10 @@ public class App {
 		SessionFactory factory = cfg.buildSessionFactory();
 		System.out.println(factory);
 
-	/*	Person person = new Person();
-		person.setPersonId(101);
-		person.setName("Chintan Ganeshwala");
-		person.setAge(28);*/
+		Person person = new Person();
+		person.setPersonId(102);
+		person.setName("Denish Jariwala");
+		person.setAge(29);
 
 		//reading image
 		FileInputStream file = new FileInputStream("src/main/java/images/HP9_7965.JPG");
@@ -39,8 +39,8 @@ public class App {
 		file.read(imageData);
 		
 		Address address = new Address();
-		address.setStreet("6 Lienau Place");
-		address.setCity("Jersey City");
+		address.setStreet("121 Lienau Place");
+		address.setCity("Edision City");
 		address.setMegaCity(true);
 		address.setPopulation(1000000);
 		address.setDate(new Date());
@@ -49,8 +49,8 @@ public class App {
 		Session session = factory.getCurrentSession(); // factory.openSession();
 		// session.beginTransaction();
 		Transaction tx = session.beginTransaction();
+		session.save(person);
 		session.save(address);
-
 		tx.commit();
 
 		session.close();
