@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -18,10 +19,19 @@ public class HQLQueryExample {
 		Session session = factory.getCurrentSession();
 		
 		Transaction tx = session.beginTransaction();
-		Query q = session.createQuery("from Projects where projectId=1");
+		//Query q = session.createQuery("from Projects where projectId=1"); //direct Query like HQL
+		//example of writing HQl with parameter passing
+		Query q = session.createQuery("from Projects where projectId = :x ");
+		q.setParameter("x", 1);
 		List<Projects> list = q.list();
 		for(Projects p : list) {
-			System.out.println(p.getPrjectName()+" "+p.getEmpl().get(0).getEmployeeName());
+			System.out.println(p.getPrjectName()+" "+p.getEmpl().get(1).getEmployeeName());
+		}
+		
+		Query q1 = session.createQuery("select e.empId,e.employeeName,p.projectId,p.prjectName from Employee e Inner Join e.project as p where p.prjectName not like 'SCM-VesselTracking'");
+		List<Object[]> joinList = q1.list();
+		for(Object[] res : joinList) {
+			System.out.println(Arrays.toString(res));
 		}
 	}
 
